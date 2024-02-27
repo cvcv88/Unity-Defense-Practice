@@ -26,8 +26,9 @@ public class MonsterSpawner : MonoBehaviour
 	{
 		while (true)
 		{
-
+			yield return new WaitForSeconds(repeatTime);
+			Monster monster = Instantiate(monsterPrefab, startPoint.position, startPoint.rotation);
+			monster.SetDestination(endPoint.position);
 		}
 	}
-
 }
