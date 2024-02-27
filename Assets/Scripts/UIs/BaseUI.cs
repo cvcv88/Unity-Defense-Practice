@@ -70,6 +70,8 @@ public class BaseUI : MonoBehaviour
 		{
 			string name = $"{child.gameObject.name}_{child.GetType().Name}"; // 게임오브젝트의 이름과 컴포넌트의 이름도 같이 넣어주기
 																			 // next 버튼의 transform 컴포넌트..
+			if (components.ContainsKey(name))
+				continue;
 			components.Add(name, child);
 			// Debug.Log(name); 
 		}

@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopUpUI : MonoBehaviour
+public class PopUpUI : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
+    // 웬만한 UI는 Close 기능 있기 때문에 부모에서 만들어주었다.
+    public void Close()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Manager.UI.ClosePopUpUI();
     }
 }

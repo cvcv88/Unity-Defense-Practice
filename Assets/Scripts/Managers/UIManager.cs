@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 public class UIManager : MonoBehaviour
 {
 	[SerializeField] EventSystem eventSystemPrefab;
+	[SerializeField] Canvas popUpCanvas;
 
-	private Stack<PopUpUI> popUpStack;
+	private Stack<PopUpUI> popUpStack = new Stack<PopUpUI>();
 
 	private void Awake()
 	{
@@ -30,7 +31,10 @@ public class UIManager : MonoBehaviour
 			prevUI.gameObject.SetActive(false);
 		}
 
-		T instance = Instantiate(popUpUI);
+		// T instance = Instantiate(popUpUI);
+		T instance = Instantiate(popUpUI, popUpCanvas.transform);
+		// transform 지정해주면 두번째 매개변수가 부모인 자식으로 들어가게 된다.
+
 		popUpStack.Push(instance);
 		Time.timeScale = 0f;
 
