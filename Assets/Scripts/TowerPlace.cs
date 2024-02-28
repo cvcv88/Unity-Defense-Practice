@@ -24,16 +24,20 @@ public class TowerPlace : MonoBehaviour
 	-> OnPointerClick()
 	*/
 
-	public UnityEvent OnPointerEntered;
-	public UnityEvent OnPointerExited;
+	// public UnityEvent OnPointerEntered;
+	// public UnityEvent OnPointerExited;
 
 	[SerializeField] Renderer render;
 	[SerializeField] Color normalColor;
 	[SerializeField] Color hightlightColor;
 
+	[SerializeField] InGameUI buildUI;
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		// Debug.Log("Click");
+		InGameUI ui = Manager.UI.ShowInGameUI(buildUI);
+		ui.SetTarget(transform);
+		ui.SetOffset(new Vector3(0, 100, 0));
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
